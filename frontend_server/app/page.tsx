@@ -1,15 +1,19 @@
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
-import Head from 'next/head';
+import { Metadata } from 'next'
+import Layout, { siteTitle } from 'components/layout';
+import utilStyles from 'styles/utils.module.css';
+import { getSortedPostsData } from 'lib/posts';
 import Link from 'next/link';
-import Date from '../components/date';
+import Date from 'components/date';
 
-export default function Home({ allPostsData }) {
+export const metadata: Metadata = {
+  title: siteTitle
+}
+
+export default function Page() {
+  const allPostsData = getSortedPostsData();
   return (
+    <>
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section className={utilStyles.headingMd}>
         <p>Software Engineer</p>
         <p>
@@ -32,17 +36,6 @@ export default function Home({ allPostsData }) {
         </ul>
       </section>
     </Layout>
+    </>
   );
-}
-
-import { getSortedPostsData } from '../lib/posts';
-
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  console.log(allPostsData)
-  return {
-    props: {
-      allPostsData,
-    },
-  };
 }
