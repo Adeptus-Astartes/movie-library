@@ -1,4 +1,4 @@
-import './global.css'
+import 'styles/global.css'
 
 const name = 'Vadym Tykhoniuk';
 export const siteTitle = 'Next.js Sample Website';
