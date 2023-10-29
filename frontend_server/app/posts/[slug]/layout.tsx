@@ -4,18 +4,8 @@ import styles from 'app/layout.module.css';
 import utilStyles from 'styles/utils.module.css';
 
 const name = 'Vadym Tykhoniuk';
-export const siteTitle = 'Next.js Sample Website';
 
-// export default function DashboardLayout({
-//   children,
-// }: {
-//   children: React.ReactNode
-// }) {
-//   return <section>{children}</section>
-// }
-
-
-export default function PostLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
